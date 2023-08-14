@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="header-title">My Library</h1>
+    <button type="button" class="btn-open-form card" id="open-form">
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                viewBox="0 0 45.402 45.402"
+                xml:space="preserve" class="plus-sign">
+            <g>
+                <path d="M41.267,18.557H26.832V4.134C26.832,1.851,24.99,0,22.707,0c-2.283,0-4.124,1.851-4.124,4.135v14.432H4.141
+                    c-2.283,0-4.139,1.851-4.138,4.135c-0.001,1.141,0.46,2.187,1.207,2.934c0.748,0.749,1.78,1.222,2.92,1.222h14.453V41.27
+                    c0,1.142,0.453,2.176,1.201,2.922c0.748,0.748,1.777,1.211,2.919,1.211c2.282,0,4.129-1.851,4.129-4.133V26.857h14.435
+                    c2.283,0,4.134-1.867,4.133-4.15C45.399,20.425,43.548,18.557,41.267,18.557z"/>
+            </g>
+        </svg>
+        <span>NEW BOOK</span>
+    </button>
+    <div class="container" id="cards-display"> 
+    </div>
+    <div  class="modal hidden" id="modal">
+        <form action="" class="new-book-form">
+            <span class="close" id="modal-close">&times;</span>
+            <div>
+                <label for="newTitle">Title </label>
+                <input type="text" name="newTitle" id="newTitle">
+            </div>
+            <div>
+                <label for="newAuthor">Author </label>
+                <input type="text" name="newAuthor" id="newAuthor">
+            </div>
+            <div>
+                <label for="newPages">Pages </label>
+                <input type="number" name="newPages" id="newPages">
+            </div>
+            <div>
+                <label class="checkbox-container" for="newRead">Already Read?  
+                    <input type="checkbox" name="newRead" id="newRead">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            <button type="submit" class="btn btn-add-book" id="add-book">ADD</button>
+        </form>
+    </div>
+</body>
+</html>
