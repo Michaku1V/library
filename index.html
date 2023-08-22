@@ -32,15 +32,15 @@
             <span class="close" id="modal-close">&times;</span>
             <div>
                 <label for="newTitle">Title </label>
-                <input type="text" name="newTitle" id="newTitle">
+                <input type="text" name="newTitle" id="newTitle" required minlength="1" placeholder="Arthur Conan Doyle">
             </div>
             <div>
                 <label for="newAuthor">Author </label>
-                <input type="text" name="newAuthor" id="newAuthor">
+                <input type="text" name="newAuthor" id="newAuthor" required minlength="1" placeholder="Sherlock Holmes">
             </div>
             <div>
                 <label for="newPages">Pages </label>
-                <input type="number" name="newPages" id="newPages">
+                <input type="number" name="newPages" id="newPages" required min="1" placeholder="99">
             </div>
             <div>
                 <label class="checkbox-container" for="newRead">Already Read?  

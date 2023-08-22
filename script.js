@@ -28,10 +28,6 @@ const Library = (function () {
     }
     
     function addBookToLibrary(title, author, pages, readStatus) {
-        if (title === '' || author === '' || pages === 0) {
-            alert('Please add title, author and number of pages');
-            return;
-        };
         for (const book of library) {
             if (book.title === title && book.author === author) {
                 alert('Book is already in the list');
@@ -81,6 +77,13 @@ const DisplayController = (function () {
     btnAddNew.addEventListener('click', displayBooks)
     document.addEventListener('click', switchStatus)
     document.addEventListener('click', removeCurrentBook)
+    titleEl.addEventListener('input', setValidity)
+    authorEl.addEventListener('input', setValidity)
+    pagesEl.addEventListener('input', setValidity)
+
+    function setValidity() {
+        this.setCustomValidity('')
+    }
 
     function init() {
         displayLibrary()
@@ -119,12 +122,24 @@ const DisplayController = (function () {
     }
 
     function displayBooks(e) {
-        e.preventDefault();
-        library.addBookToLibrary(titleEl.value, authorEl.value, +pagesEl.value, readEl.checked);
-        displayLibrary();
-        titleEl.value = '';
-        authorEl.value = '';
-        pagesEl.value = '';
+        if (titleEl.validity.valid && authorEl.validity.valid && pagesEl.validity.valid) {
+            e.preventDefault();
+            library.addBookToLibrary(titleEl.value, authorEl.value, +pagesEl.value, readEl.checked);
+            displayLibrary();
+            titleEl.value = '';
+            authorEl.value = '';
+            pagesEl.value = '';
+        } 
+        if (titleEl.validity.tooShort || titleEl.validity.valueMissing) {
+            titleEl.setCustomValidity('Please, add title of the book here')
+        } 
+        if (authorEl.validity.tooShort || authorEl.validity.valueMissing) {
+            authorEl.setCustomValidity('Please, add author of the book here')
+        } 
+        if (pagesEl.validity.rangeUnderflow || pagesEl.validity.valueMissing) {
+            pagesEl.setCustomValidity('Please, add number of pages here')
+        } 
+       
     }
 
     function removeCurrentBook(e) {
